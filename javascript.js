@@ -55,7 +55,7 @@ var string;
 $('body').terminal(function(cmd, term) {
   var finish = false;
   var msg = "Wait I'm executing ajax call";
-  term.set_prompt('[[;#f7efae;]man15h@tilda:~] ');
+  term.set_prompt('[[;#f7efae;]screwgoth@localhost:~] ');
   var commandText = function(text){
     return "[[;#90ca9a;]" + text + "]";
   }
