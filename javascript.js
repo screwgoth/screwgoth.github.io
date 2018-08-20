@@ -81,6 +81,7 @@ $('body').terminal(function(cmd, term) {
       term.echo(commandText("   about")+"            information about this page");
       term.echo(commandText("   tech")+"             display my technical skills");
       term.echo(commandText("   age")+"              display my Age");
+      term.echo(commandText("   github")+"           open my Github page");
       term.echo(commandText("   exit")+"             exit this page");
     }
   else if (cmd=='whoami'){
@@ -145,6 +146,28 @@ $('body').terminal(function(cmd, term) {
                }
            })();
          }
+         else if (cmd == 'github') {
+          var i = 0, size =91;
+          prompt = term.get_prompt();
+          string = progress(0, size);
+          term.set_prompt(progress);
+          animation = true;
+          (function loop() {
+              string = progress(i++, size);
+              term.set_prompt(string);
+              if (i <60) {
+                  timer = setTimeout(loop, 100);
+              }
+              else if (60<i<100) {
+                 window.location.href = "http://github.com/screwgoth";
+              }else {
+                  term.echo(progress(i, size) + ' [[b;green;]OK]')
+                      .set_prompt(prompt);
+                  animation = false
+
+              }
+          })();
+        }
     else if (cmd == 'exit') {
         term.echo("Thanks!");
         javascript:window.close();
